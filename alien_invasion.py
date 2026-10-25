@@ -30,7 +30,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.update_screen()
+            self._update_screen()
             self.clock.tick(60)
         
         
@@ -65,9 +65,6 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
-            # Make the most recently drawn screen visible.
-            pygame.display.flip()
-            self.clock.tick(60)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
