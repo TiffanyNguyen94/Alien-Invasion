@@ -62,6 +62,12 @@ class AlienInvasion:
         self.laser_sound = pygame.mixer.Sound(laser_sound_path)
         self.laser_sound.set_volume(0.6)
 
+        # Load background music.
+        music_path = Path("sounds/Swan_Lake.mp3")
+        pygame.mixer.music.load(music_path)
+        pygame.mixer.music.set_volume(0.7)
+        pygame.mixer.music.play(-1)
+
 
     def run_game(self):
         """Start the main loop for the game."""
