@@ -1,5 +1,6 @@
 import sys
 from time import sleep
+from pathlib import Path
 
 import pygame
 
@@ -55,6 +56,11 @@ class AlienInvasion:
 
         # Make the Play button.
         self.play_button = Button(self, "Play")
+
+        # Load laser sound.
+        laser_sound_path = Path("sounds/laser.wav")
+        self.laser_sound = pygame.mixer.Sound(laser_sound_path)
+        self.laser_sound.set_volume(0.6)
 
 
     def run_game(self):
@@ -137,6 +143,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            self.laser_sound.play()
 
     def _update_bullets(self):
         """Update the position of bullets and get rif of old bullets"""
